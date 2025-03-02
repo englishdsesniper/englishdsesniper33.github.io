@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English DSE Sniper - Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&family=Georgia&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff; /* 白色背景，乾淨學術感 */
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            padding: 60px 0;
+            background-color: #002147; /* 深藍色，參考哈佛/耶魯 */
+            color: #ffffff; /* 白色文字，提供對比 */
+            animation: fadeIn 1s ease-in;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #d4a017; /* 金色，象徵學術卓越 */
+        }
+
+        .tagline {
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+        }
+
+        .content {
+            padding: 60px 0;
+            background-color: rgba(0, 33, 71, 0.05); /* 非常淺的藍色疊層，學術氣質 */
+        }
+
+        .bio {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 20px auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .bio.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            color: #d4a017; /* 金色強調，學術尊貴感 */
+        }
+
+        .threads-btn, .resources-btn {
+            display: inline-block;
+            margin: 15px 10px;
+            padding: 15px 40px;
+            background-color: #002147; /* 深藍色按鈕 */
+            color: #d4a017; /* 金色文字 */
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 50px;
+            border: 2px solid #d4a017; /* 金色邊框，增加精緻感 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+
+        .threads-btn:hover, .resources-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background-color: #d4a017; /* 懸停時金色背景 */
+            color: #002147; /* 懸停時深藍文字，對比鮮明 */
+        }
+
+        footer {
+            background-color: #002147; /* 深藍色頁腳 */
+            color: #ffffff; /* 白色文字 */
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .tagline { font-size: 1.2em; }
+            .bio { font-size: 1em; }
+            .threads-btn, .resources-btn { font-size: 1em; padding: 12px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>English DSE Sniper</h1>
+            <div class="tagline">DSE 英文狙擊手 - 成就 5** 的學術之路</div>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+            <p class="bio">我是 <span class="highlight">@english_dse_sniper</span>，擁有 <span class="highlight">10 多年 DSE 英文教學經驗</span>，親奪 <span class="highlight">英文 5**</span>，大學主修英文系，並持有 <span class="highlight">HKU 中學英文教育 (PGDE)</span>。</p>
+            <p class="bio">我的興趣是 <span class="highlight">研究考評報告</span>，熟悉 DSE 出題方向與遊戲玩法，助你輕鬆應對考試，<span class="highlight">卓越表現</span>。</p>
+            <p class="bio">立即關注我的 Threads，獲取每日更新與專業建議，或者點擊下方連結，<span class="highlight">獲取 DSE 免費資源，以及查看保 4 衝星攻略、Oral 精讀、2025 熱門題目、筆記及 5** 真跡</span>！</p>
+            <a href="https://www.threads.net/@english_dse_sniper" target="_blank" class="threads-btn">關注 Threads</a>
+            <a href="https://forms.gle/XPC7BtsNA38pjkkF6" target="_blank" class="resources-btn">獲取免費資源</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © 2025 English DSE Sniper. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        // 滾動觸發動畫
+        const elements = document.querySelectorAll('.bio');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        elements.forEach(element => observer.observe(element));
+    </script>
+</body>
+</html>
